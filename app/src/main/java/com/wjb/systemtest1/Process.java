@@ -6,60 +6,53 @@ package com.wjb.systemtest1;
  */
 public class Process implements Cloneable{
 
-    private String name="未命名";
-    private int priority=10;
-    private int needTime=0;  //需要的时间
-    private int runTime=0;
+    private String NAME="未命名";  //进程标志符
+    private int PRIO=10;  //进程优先数
+    private int NEEDTIME=0;  //进程到完成还要的CPU时间
+    private int CPUTIME=0;  //进程占用CPU时间
     private int startTime = 0;
     private int endTime = 0;
-    private String state="就绪";
+    private String STATE="就绪";
 
-    public Process(String name,int priority,int needTime){
-        this.name = name;
-        this.priority = priority;
-        this.needTime = needTime;
+    public Process(String NAME,int PRIO,int NEEDTIME){
+        this.NAME = NAME;
+        this.PRIO = PRIO;
+        this.NEEDTIME = NEEDTIME;
     }
 
-    public String getName() {
-        return name;
+
+    public String getNAME() {
+        return NAME;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNAME(String NAME) {
+        this.NAME = NAME;
     }
 
-    public int getPriority() {
-        return priority;
+    public int getPRIO() {
+        return PRIO;
     }
 
-    public void setPriority(int priority) {
-        this.priority = priority;
+    public void setPRIO(int PRIO) {
+        this.PRIO = PRIO;
     }
 
-    public int getRunTime() {
-        return runTime;
+    public int getNEEDTIME() {
+        return NEEDTIME;
     }
 
-    public void setRunTime(int runTime) {
-        this.runTime = runTime;
+    public void setNEEDTIME(int NEEDTIME) {
+        this.NEEDTIME = NEEDTIME;
     }
 
-    public int getNeedtime() {
-        return needTime;
+    public int getCPUTIME() {
+        return CPUTIME;
     }
 
-    public void setNeedtime(int needTime) {
-        this.needTime = needTime;
+    public void setCPUTIME(int CPUTIME) {
+        this.CPUTIME = CPUTIME;
     }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
+    
     public int getEndTime() {
         return endTime;
     }
@@ -80,11 +73,11 @@ public class Process implements Cloneable{
     protected Process clone() throws CloneNotSupportedException {
         try {
             Process p = (Process) super.clone();  //浅度克隆  地址改变，但时内容不变
-            p.name = this.name;
-            p.priority = this.priority;
-            p.needTime = this.needTime;
-            p.runTime = this.runTime;
-            p.state = this.state;
+            p.NAME = this.NAME;
+            p.PRIO = this.PRIO;
+            p.NEEDTIME = this.NEEDTIME;
+            p.CPUTIME = this.CPUTIME;
+            p.STATE = this.STATE;
             p.startTime = this.startTime;
             p.endTime = this.endTime;
             return p;
@@ -93,7 +86,6 @@ public class Process implements Cloneable{
         }
         return null;
     }
-
 
 
 }
